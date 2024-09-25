@@ -3,9 +3,9 @@ import Header from "@/components/header";
 
 import {
   Card,
-  CardContent,
+//   CardContent,
   CardDescription,
-  CardFooter,
+//   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
