@@ -1,6 +1,4 @@
 "use client"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithubSquare, faLinkedinIn, faItchIo, faLinkedin, faYoutubeSquare, faXingSquare, faSquareXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 
