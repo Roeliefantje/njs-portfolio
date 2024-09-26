@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Background from "@/components/three/voxel_world";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +29,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="absolute top-0 left-0, z-0 w-full">
+          <Background/>
+        </div>
+        <div className="relative z-1">
+          {children}
+        </div>
+        
       </body>
     </html>
   );
