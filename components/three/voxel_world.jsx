@@ -4,20 +4,6 @@ import { Canvas } from "@react-three/fiber";
 import { useRef } from "react";
 import {createNoise2D} from 'simplex-noise';
 
-function Box(props) {
-  // This reference will give us direct access to the mesh
-  // Return view, these are regular three.js elements expressed in JSX
-  return (
-    <mesh
-      {...props}>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={'hotpink'} />
-    
-    </mesh>
-  )
-}
-
-
 
 function CustomMesh() {
   const meshRef = useRef();
