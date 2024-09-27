@@ -17,8 +17,8 @@ export default function Header() {
       </div>
 
       <div className="flex gap-4 ml-auto">
-        <Button onClick={() => router.push("/")}>Projects</Button>
-        <Button className="fill-white" onClick={() => router.push("/projects")}>
+        <Button onClick={() => router.push("/projects")}>Projects</Button>
+        <Button className="fill-white" onClick={() => router.push("/blog")}>
           Blog
         </Button>
         <Button

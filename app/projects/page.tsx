@@ -50,9 +50,6 @@ export default function Projects() {
                 />
               </div>
             </CardContent>
-            {/* <CardFooter className="">
-                
-            </CardFooter> */}
           </Card>
         </a>
 
@@ -85,9 +82,6 @@ export default function Projects() {
                 />
               </div>
             </CardContent>
-            {/* <CardFooter className="">
-                
-            </CardFooter> */}
           </Card>
         </a>
 
@@ -120,9 +114,6 @@ export default function Projects() {
                 />
               </div>
             </CardContent>
-            {/* <CardFooter className="">
-                
-            </CardFooter> */}
           </Card>
         </a>
       </main>
