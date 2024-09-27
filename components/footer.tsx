@@ -15,7 +15,7 @@ export default function Footer() {
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="www.linkedin.com/in/roeliefantje"
+          href="https://www.linkedin.com/in/roeliefantje"
           target="_blank"
           rel="noopener noreferrer"
         >
