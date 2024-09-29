@@ -104,6 +104,7 @@ function CustomMesh() {
 
   useFrame((_, delta) => {
     offsetX += delta / 3;
+    offsetY += delta / 8;
     
     for(let i = 1; i < vertices.length; i+= 3){
       vertices[i] += 1;
@@ -113,7 +114,7 @@ function CustomMesh() {
     const newVertices = [];
     for (let z = -20; z < depth - 20; z+=1) {
       for (let x = Math.floor(width / -2); x < Math.ceil(width / 2); x+=1) {
-        const y = Math.abs(noise2D((x + offsetX) / scale, (z + offsetX) / scale)) * 4 - 2 + (z * 10 / depth);
+        const y = Math.abs(noise2D((x + offsetX) / scale, (z + offsetY) / scale)) * 4 - 2 + (z * 10 / depth);
         //Top face
         newVertices.push(x, y + 1, z);
         newVertices.push(x, y + 1, z + 1);
