@@ -93,7 +93,7 @@ export default function Projects() {
             <CardHeader className="">
               <CardTitle>Craft Optimization</CardTitle>
               <CardDescription>
-                Optimizing a Minecraft clone written in C by about 50 times by
+                Optimizing a Minecraft clone written in C by @fogleman. Increasing performance by about 50 times by
                 using both high-level and low-level optimization techniques.
               </CardDescription>
             </CardHeader>
