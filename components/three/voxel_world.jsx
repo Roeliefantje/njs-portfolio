@@ -103,18 +103,17 @@ function CustomMesh() {
   let offsetX = 0;
 
   useFrame((_, delta) => {
-    offsetX += delta / 2;
+    offsetX += delta / 3;
     
     for(let i = 1; i < vertices.length; i+= 3){
       vertices[i] += 1;
     }
-    console.log(vertices[1]);
     const positionAttribute = meshRef.current.geometry.attributes.position;
 
     const newVertices = [];
     for (let z = -20; z < depth - 20; z+=1) {
       for (let x = Math.floor(width / -2); x < Math.ceil(width / 2); x+=1) {
-        const y = Math.abs(noise2D((x + offsetX) / scale, z / scale)) * 4 - 2 + (z * 10 / depth);
+        const y = Math.abs(noise2D((x + offsetX) / scale, (z + offsetX) / scale)) * 4 - 2 + (z * 10 / depth);
         //Top face
         newVertices.push(x, y + 1, z);
         newVertices.push(x, y + 1, z + 1);
@@ -137,12 +136,7 @@ function CustomMesh() {
         newVertices.push(x + 1, y + 1, z);
       }
     }
-    console.log(positionAttribute.array.length);
-    console.log(newVertices);
     positionAttribute.array = new Float32Array(newVertices);
-    // for (let i = 0; i < positionAttribute.count; i++) {
-    //   positionAttribute.array[i * 3 + 1] += delta; // Example modification
-    // }
 
     positionAttribute.needsUpdate = true;
   })
