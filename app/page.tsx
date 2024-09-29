@@ -40,12 +40,12 @@ export default function Home() {
 
         <div className="flex text-pretty justify-center max-w-screen-md">
           <p>
-            Current part‑time Software Engineer at start‑up company Twiki
-            Solutions. Working as a project lead primarily focused on developing
-            backend microservices. Master of science student in Game and Media
+            Current part‑time Software Engineer and Project lead at start‑up
+            company Twiki Solutions primarily focused on developing backend
+            microservices. Master of science student in Game and Media
             Technology at Utrecht University. Enjoy most things tech and love
-            messing around and solving problems. Most passionate about Graphics
-            development and low‑level code, usually videogame related.
+            messing around with tech and solving problems. Most passionate about
+            Graphics development and low‑level code, usually videogame related.
           </p>
         </div>
 
