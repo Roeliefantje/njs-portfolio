@@ -101,6 +101,7 @@ function CustomMesh() {
   }
 
   let offsetX = 0;
+  let offsetY = 0;
 
   useFrame((_, delta) => {
     offsetX += delta / 3;
