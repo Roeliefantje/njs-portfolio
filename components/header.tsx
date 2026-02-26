@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 export default function Header() {
   const router = useRouter();
   return (
-    <header className="row-start-1 flex justify-between items-center p-4 w-full max-w-screen-md">
+    <header className="row-start-1 flex justify-between items-center  w-full max-w-screen-md p-4">
       <div className="flex-shrink-0">
         <Button
           variant={"secondary"}

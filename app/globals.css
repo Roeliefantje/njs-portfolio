@@ -76,3 +76,28 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+/* styles/globals.css or a CSS module */
+.scrollbar-thin-custom::-webkit-scrollbar {
+  width: 12px;
+}
+
+.scrollbar-thin-custom::-webkit-scrollbar-track {
+  background: #e0080800;
+}
+
+.scrollbar-thin-custom::-webkit-scrollbar-thumb {
+  background-color: #99999900;
+  border-radius: 4px;
+  border: 2px solid #f3f3f3;
+}
+.scrollbar-thin-custom::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
+/* For Firefox */
+.scrollbar-thin-custom {
+  scrollbar-width: thin;
+  scrollbar-color: #0000008c #f3f3f300;
+}
