@@ -4,10 +4,19 @@ import { Canvas } from "@react-three/fiber";
 import { useRef } from "react";
 import {createNoise2D} from 'simplex-noise';
 import { useFrame } from '@react-three/fiber'
+import { useTexture } from "@react-three/drei";
+import * as THREE from "three";
 
 function CustomMesh() {
   const meshRef = useRef();
   const noise2D = createNoise2D();
+  const texture = useTexture("/textures/grass_other.png");
+  // texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+  texture.repeat.set(1, 1);
+  texture.magFilter = THREE.NearestFilter;
+  texture.minFilter = THREE.NearestFilter;
+  texture.generateMipmaps = false;
+  texture.needsUpdate = true;
 
   const width = 80;
   const depth = 45;
@@ -16,11 +25,23 @@ function CustomMesh() {
   const vertices = [];
   const indices = [];
   const normals = [];
+  const uvs = [];
   var currIndex = 0;
   for (let z = -20; z < depth - 20; z+=1) {
     for (let x = Math.floor(width / -2); x < Math.ceil(width / 2); x+=1) {
       
       const y = Math.abs(noise2D(x / scale, z / scale)) * 4 - 2 + (z * 10 / depth);
+
+      // const rand_x = Math.random()
+      // const rand_y = Math.random()
+      // let x_start = 0
+      // let y_start = 0
+      // if (rand_x > 0.5) {
+      //   x_start = 0.5
+      // }
+      // if (rand_y > 0.5) {
+      //   y_start = 0.5
+      // }
 
       //Top face with normals
       vertices.push(x, y + 1, z);
@@ -31,6 +52,15 @@ function CustomMesh() {
       normals.push(0, 1, 0);
       normals.push(0, 1, 0);
       normals.push(0, 1, 0);
+      
+      // uvs.push(x_start + 0.5, y_start);
+      // uvs.push(x_start + 0.5,  y_start + 0.5);
+      // uvs.push(x_start, y_start);
+      // uvs.push(x_start, y_start + 0.5);
+      uvs.push(1, 0);
+      uvs.push(1, 1);
+      uvs.push(0, 0);
+      uvs.push(0, 1);
 
       var a = currIndex++;
       var b = currIndex++;
@@ -49,6 +79,10 @@ function CustomMesh() {
       normals.push(-1, 0, 0);
       normals.push(-1, 0, 0);
       normals.push(-1, 0, 0);
+      uvs.push(1, 0);
+      uvs.push(1, 1);
+      uvs.push(0, 0);
+      uvs.push(0, 1);
 
       a = currIndex++;
       b = currIndex++;
@@ -67,6 +101,10 @@ function CustomMesh() {
       normals.push(1, 0, 0);
       normals.push(1, 0, 0);
       normals.push(1, 0, 0);
+      uvs.push(1, 0);
+      uvs.push(1, 1);
+      uvs.push(0, 0);
+      uvs.push(0, 1);
 
       a = currIndex++;
       b = currIndex++;
@@ -86,6 +124,10 @@ function CustomMesh() {
       normals.push(0, 0, -1);
       normals.push(0, 0, -1);
       normals.push(0, 0, -1);
+      uvs.push(1, 0);
+      uvs.push(0, 0);
+      uvs.push(1, 1);
+      uvs.push(0, 1);
 
       var a = currIndex++;
       var b = currIndex++;
@@ -163,8 +205,14 @@ function CustomMesh() {
           itemSize={1} 
           count={indices.length} 
         />
+        <bufferAttribute
+          attach="attributes-uv"
+          array={new Float32Array(uvs)}
+          itemSize={2}
+          count={uvs.length / 2}
+        />
       </bufferGeometry>
-      <meshStandardMaterial color="grey" />
+      <meshStandardMaterial map={texture} />
     </mesh>
   );
 }
@@ -173,6 +221,7 @@ export default function Background() {
   return (
     <div className="w-full min-w-full h-svh min-h-svh">
       <Canvas camera={{ position: [0, 2, -20], fov: 50}}>
+          <color attach="background" args={["#87CEEB"]} />
           <ambientLight intensity={0.2} color="white" />
           {/* <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
           <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} /> */}
