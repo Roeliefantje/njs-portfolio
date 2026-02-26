@@ -76,7 +76,7 @@ const projects: ProjectCardProps[] = [
       { label: "optimization", variant: "secondary" },
       { label: "rendering", variant: "secondary" },
     ],
-    imageSrc: "/project-previews/craft.png",
+    imageSrc: "/project-previews/Craft.png",
     imageAlt: "Voxel Engine Preview"
   },
 ];
