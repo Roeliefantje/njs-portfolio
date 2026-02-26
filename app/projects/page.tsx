@@ -3,7 +3,7 @@ import Header from "@/components/header";
 import { ProjectCard, ProjectCardProps } from "@/components/project_card";
 
 
-export const projects: ProjectCardProps[] = [
+const projects: ProjectCardProps[] = [
   {
     href: "https://github.com/Roeliefantje/ultimate-voxel-engine",
     title: "Vulkan voxel ray marcher",
