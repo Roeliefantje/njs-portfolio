@@ -32,7 +32,8 @@ export function ProjectCard({
 }: ProjectCardProps) {
   return (
     <a href={href} target="_blank" className="w-full">
-      <Card className="w-full max-w-screen-md p-0 flex flex-row">
+        {/* <div className="overflow-hidden rounded-lg"> */}
+      <Card className="w-full max-w-screen-md p-0 flex flex-row transform transition-transform duration-200 hover:scale-95 will-change-transform">
         {/* Left side: all text content */}
         <div className="flex-1 flex flex-col justify-between">
           {/* <div> */}
@@ -69,6 +70,7 @@ export function ProjectCard({
           </div>
         )}
       </Card>
+      {/* </div> */}
     </a>
   );
 }
